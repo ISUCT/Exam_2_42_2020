@@ -1,43 +1,24 @@
-using System;
+using System.IO;
+using System.Text;
 using Xunit;
 
 namespace CourseApp.Tests
 {
     public class DemoTest
     {
-        [Fact]
-        public void Test1()
-        {
-            Assert.True(true);
-        }
-
         [Theory]
-        [InlineData(0, 0, 0, double.NaN)]
-        [InlineData(2, 4.1, 0.77, 2.671)]
-        public void TestCalcAllZeros(double a, double b, double x, double exp)
+        [InlineData("Text Text Text\nText Text Text\nText Text Text", "1 - Text Text Text\n2 - Text Text Text\n3 - Text Text Text")]
+        [InlineData("Text Text Text\nText Text Text\nText Text Text\nText Text Text\nText Text Text",
+        "1 - Text Text Text\n2 - Text Text Text\n3 - Text Text Text\n4 - Text Text Text\n5 - Text Text Text")]
+        [InlineData("Text Text Text\n\nText Text Text", "1 - Text Text Text\n2 - \n3 - Text Text Text")]
+        public void TestCorrectReadFile(string text, string result)
         {
-            var actualResult = Program.Calc(a, b, x);
-            Assert.Equal(exp, actualResult, 3);
-        }
-
-        [Fact]
-        public void TestTaskA()
-        {
-            var res = Program.TaskA(2, 4.1, 1, 3, 1);
-            Assert.Equal(3, res.Length);
-            double[] expX = { 1, 2, 3 };
-            for (int i = 0; i <= 2; i++)
+            using (var file = new System.IO.StreamWriter("test.txt"))
             {
-                var (x, y) = res[i];
-                Assert.Equal(expX[i], x, 1);
+                file.WriteLine(text);
             }
-        }
-
-        [Fact]
-        public void TestTaskAXnGraterXn()
-        {
-            var res = Program.TaskA(2, 4.1, 3, 1, 1);
-            Assert.Empty(res);
+            var actualResult = Program.ReadTextFromFile();
+            Assert.Equal(result.Split('\n'), actualResult);
         }
     }
 }
