@@ -4,7 +4,7 @@ using ConsoleApp;
 
 namespace ConsoleApp.Tests
 {
-    public class UnitTest1
+    public class DemoTest
     {
         [Fact]
         public void Test1()
@@ -15,7 +15,7 @@ namespace ConsoleApp.Tests
             Assert.Equal(7, search.OldMax);
             Assert.Equal(8, search.NewMax);
         }
-        
+
         [Fact]
         public void Test2()
         {
@@ -33,7 +33,7 @@ namespace ConsoleApp.Tests
             Search search = new Search();
             Assert.Equal(224, search.Searching(array));
             Assert.Equal(14, search.OldMax);
-            Assert.Equal(16, search.NewMax);    
+            Assert.Equal(16, search.NewMax);
         }
     }
 }
