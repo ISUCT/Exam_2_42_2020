@@ -18,7 +18,7 @@ namespace CourseApp.Tests
         public void TestY()
         {
             int y = 31;
-            Summator actualResult = new Summator(y);
+            Summator actualResult = new Summator(0, y);
             int exp = y;
             Assert.Equal(exp, actualResult.Y);
         }
