@@ -10,13 +10,13 @@ namespace CourseApp
         public static string ReadLog()
         {
             string text = "1 ";
-            int s = 1;
+            int a = 1;
 
             using (StreamReader fs = new StreamReader($"{path}\\note.txt"))
             {
                 while (true)
                 {
-                    s++;
+                    a++;
                     string temp = fs.ReadLine();
 
                     if (temp == null)
@@ -24,7 +24,7 @@ namespace CourseApp
                         break;
                     }
 
-                    temp += $"\n{s} ";
+                    temp += $"\n{a} ";
                     text += temp;
                 }
             }
