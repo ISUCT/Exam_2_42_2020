@@ -1,43 +1,39 @@
 using System;
 using Xunit;
+using ConsoleApp;
 
-namespace CourseApp.Tests
+namespace ConsoleApp.Tests
 {
-    public class DemoTest
+    public class UnitTest1
     {
         [Fact]
         public void Test1()
         {
-            Assert.True(true);
+            double[] array = new double[5] { 1, 5, 7, 2, 8 };
+            Search search = new Search();
+            Assert.Equal(56, search.Searching(array));
+            Assert.Equal(7, search.OldMax);
+            Assert.Equal(8, search.NewMax);
         }
-
-        [Theory]
-        [InlineData(0, 0, 0, double.NaN)]
-        [InlineData(2, 4.1, 0.77, 2.671)]
-        public void TestCalcAllZeros(double a, double b, double x, double exp)
+        
+        [Fact]
+        public void Test2()
         {
-            var actualResult = Program.Calc(a, b, x);
-            Assert.Equal(exp, actualResult, 3);
+            double[] array = new double[4] { 10, 2, 3, 8 };
+            Search search = new Search();
+            Assert.Equal(80, search.Searching(array));
+            Assert.Equal(8, search.OldMax);
+            Assert.Equal(10, search.NewMax);
         }
 
         [Fact]
-        public void TestTaskA()
+        public void Test3()
         {
-            var res = Program.TaskA(2, 4.1, 1, 3, 1);
-            Assert.Equal(3, res.Length);
-            double[] expX = { 1, 2, 3 };
-            for (int i = 0; i <= 2; i++)
-            {
-                var (x, y) = res[i];
-                Assert.Equal(expX[i], x, 1);
-            }
-        }
-
-        [Fact]
-        public void TestTaskAXnGraterXn()
-        {
-            var res = Program.TaskA(2, 4.1, 3, 1, 1);
-            Assert.Empty(res);
+            double[] array = new double[6] { 1, 2, 14, 16, 2, 1 };
+            Search search = new Search();
+            Assert.Equal(224, search.Searching(array));
+            Assert.Equal(14, search.OldMax);
+            Assert.Equal(16, search.NewMax);    
         }
     }
 }
