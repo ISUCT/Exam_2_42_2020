@@ -5,39 +5,18 @@ namespace CourseApp.Tests
 {
     public class DemoTest
     {
-        [Fact]
-        public void Test1()
-        {
-            Assert.True(true);
-        }
-
         [Theory]
-        [InlineData(0, 0, 0, double.NaN)]
-        [InlineData(2, 4.1, 0.77, 2.671)]
-        public void TestCalcAllZeros(double a, double b, double x, double exp)
-        {
-            var actualResult = Program.Calc(a, b, x);
-            Assert.Equal(exp, actualResult, 3);
-        }
+        [InlineData(5, "Я одолею этих ниндзя!")]
+        [InlineData(0, "Куда делись ниндзя")]
+        [InlineData(-2, "Куда делись ниндзя")]
+        [InlineData(25, "Будет непросто, но я с ними разделаюсь")]
+        [InlineData(45, "Их слишком много")]
+        [InlineData(55, "Я погиб")]
 
-        [Fact]
-        public void TestTaskA()
+        public void TestFight(int ninjas, string exp)
         {
-            var res = Program.TaskA(2, 4.1, 1, 3, 1);
-            Assert.Equal(3, res.Length);
-            double[] expX = { 1, 2, 3 };
-            for (int i = 0; i <= 2; i++)
-            {
-                var (x, y) = res[i];
-                Assert.Equal(expX[i], x, 1);
-            }
-        }
-
-        [Fact]
-        public void TestTaskAXnGraterXn()
-        {
-            var res = Program.TaskA(2, 4.1, 3, 1, 1);
-            Assert.Empty(res);
+            var res = Program.Fight(ninjas);
+            Assert.Equal(exp, res);
         }
     }
 }
