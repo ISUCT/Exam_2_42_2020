@@ -27,6 +27,6 @@ namespace CourseApp
             public int Summ()
             {
                 return X + Y;
-            } 
+            }
     }
 }
