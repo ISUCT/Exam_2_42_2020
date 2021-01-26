@@ -19,7 +19,7 @@ public class Exam
 public static string Welcoming(string welc_m, string name_m, string age_m)
   {
       string hello_m;
-      hello_m = "{welc_m}, {name_m}: {age_m}";
+      hello_m = $"{welc_m}, {name_m}: {age_m}";
       return hello_m;
   }
 }
