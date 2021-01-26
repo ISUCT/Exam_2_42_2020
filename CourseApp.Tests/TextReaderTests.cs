@@ -9,7 +9,8 @@ namespace CourseApp.Tests
         public void Test1()
         {
             string exp = "1 Создайте метод, открывающий текстовый файл\n2 и выводящий на экран текст из файла,\n3 добавив к нему номер строки.\n4 ";
-            Assert.Equal(exp, TextReader.ReadLog());
+            string path = @"C:\Users\nik-c\OneDrive\Рабочий стол\123\Exam_2_42_2020\CourseApp.Tests";
+            Assert.Equal(exp, TextReader.ReadLog(path));
         }
     }
 }

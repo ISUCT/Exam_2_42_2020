@@ -6,7 +6,8 @@ namespace CourseApp
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine(TextReader.ReadLog());
+            string path = Environment.CurrentDirectory;
+            Console.WriteLine(TextReader.ReadLog(path));
         }
     }
 }

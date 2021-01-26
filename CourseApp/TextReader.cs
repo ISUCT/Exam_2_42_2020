@@ -5,9 +5,7 @@ namespace CourseApp
 {
     public class TextReader
     {
-        private static string path = Environment.CurrentDirectory;
-
-        public static string ReadLog()
+        public static string ReadLog(string path)
         {
             string text = "1 ";
             int a = 1;
