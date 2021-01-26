@@ -2,42 +2,25 @@ using System;
 using Xunit;
 
 namespace CourseApp.Tests
-{
+    {
     public class DemoTest
     {
-        [Fact]
-        public void Test1()
-        {
-            Assert.True(true);
-        }
-
-        [Theory]
-        [InlineData(0, 0, 0, double.NaN)]
-        [InlineData(2, 4.1, 0.77, 2.671)]
-        public void TestCalcAllZeros(double a, double b, double x, double exp)
-        {
-            var actualResult = Program.Calc(a, b, x);
-            Assert.Equal(exp, actualResult, 3);
-        }
-
-        [Fact]
-        public void TestTaskA()
-        {
-            var res = Program.TaskA(2, 4.1, 1, 3, 1);
-            Assert.Equal(3, res.Length);
-            double[] expX = { 1, 2, 3 };
-            for (int i = 0; i <= 2; i++)
-            {
-                var (x, y) = res[i];
-                Assert.Equal(expX[i], x, 1);
-            }
-        }
-
-        [Fact]
-        public void TestTaskAXnGraterXn()
-        {
-            var res = Program.TaskA(2, 4.1, 3, 1, 1);
-            Assert.Empty(res);
-        }
+    [Theory]
+    [InlineData(1, 1, "Ничья")]
+    [InlineData(1, 2, "Победил первый игрок")]
+    [InlineData(1, 3, "Победил второй игрок")]
+    [InlineData(2, 1, "Победил второй игрок")]
+    [InlineData(2, 2, "Ничья")]
+    [InlineData(2, 3, "Победил первый игрок")]
+    [InlineData(3, 1, "Победил первый игрок")]
+    [InlineData(3, 2, "Победил второй игрок")]
+    [InlineData(3, 3, "Ничья")]
+    [InlineData(5, 5, "Ошибка")]
+    public void TestGame(int a, int b, string exp)
+    {
+        Game game = new Game();
+        var result = Game.Play(a, b);
+        Assert.Equal(result, exp);
+    }
     }
 }
