@@ -6,38 +6,30 @@ namespace CourseApp.Tests
     public class DemoTest
     {
         [Fact]
-        public void Test1()
+        public void TestZeroMassive()
         {
-            Assert.True(true);
-        }
-
-        [Theory]
-        [InlineData(0, 0, 0, double.NaN)]
-        [InlineData(2, 4.1, 0.77, 2.671)]
-        public void TestCalcAllZeros(double a, double b, double x, double exp)
-        {
-            var actualResult = Program.Calc(a, b, x);
-            Assert.Equal(exp, actualResult, 3);
+            int[] massive = { 0, 0, 0 };
+            var actualResult = Program.CalcMax(massive);
+            var exp = 0;
+            Assert.Equal(exp, actualResult);
         }
 
         [Fact]
-        public void TestTaskA()
+        public void TestNormalMassive()
         {
-            var res = Program.TaskA(2, 4.1, 1, 3, 1);
-            Assert.Equal(3, res.Length);
-            double[] expX = { 1, 2, 3 };
-            for (int i = 0; i <= 2; i++)
-            {
-                var (x, y) = res[i];
-                Assert.Equal(expX[i], x, 1);
-            }
+            int[] massive = { 1, 8, 4, 9, 0, 18 };
+            var actualResult = Program.CalcMax(massive);
+            var exp = 18;
+            Assert.Equal(exp, actualResult);
         }
 
         [Fact]
-        public void TestTaskAXnGraterXn()
+        public void TestNegativeMassive()
         {
-            var res = Program.TaskA(2, 4.1, 3, 1, 1);
-            Assert.Empty(res);
+            int[] massive = { -5, -8, -8, -14 };
+            var actualResult = Program.CalcMax(massive);
+            var exp = -5;
+            Assert.Equal(exp, actualResult);
         }
     }
 }
