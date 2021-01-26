@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
     <NoWarn>1573,1591,1701;1702;1705;</NoWarn>
-    <StartupObject><Exam class="Exam"></Exam></StartupObject>
+    <StartupObject>Exam.Exam</StartupObject>
   </PropertyGroup>
 
    <ItemGroup>
