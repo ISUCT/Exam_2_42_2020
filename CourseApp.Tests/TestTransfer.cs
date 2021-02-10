@@ -20,24 +20,10 @@ namespace CourseApp.Tests
         }
 
         [Fact]
-        public void TestMilOtricatelnogoChisla()
-        {
-         LengthConverter izmerenie = new LengthConverter();
-         Assert.Equal(-1.609, izmerenie.TransferMil(-1));
-        }
-
-        [Fact]
         public void TestMil0()
         {
          LengthConverter izmerenie = new LengthConverter();
          Assert.Equal(0, izmerenie.TransferMil(0));
-        }
-
-         [Fact]
-        public void TestKilometrovOtricatelnogoChisla()
-        {
-         LengthConverter izmerenie = new LengthConverter();
-         Assert.Equal(-1, izmerenie.TransferKilometrov(-1.609));
         }
 
         [Fact]
